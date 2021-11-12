@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squelette</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+   
+    <div id="app">
+        <textarea name="exercice" id="" cols="30" rows="10" v-model="texte"></textarea>
+        <div class="style-texte">
+            {{texte}}
+        </div>
+    </div>
+
+    <script>
+       
+        app = Vue.createApp({
+            data() {
+                return {
+                    texte: '',
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+    <style>
+        .style-texte{
+            white-space: pre-line;
+        }
+    </style>
+</body>
+</html>

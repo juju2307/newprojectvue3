@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet1-18</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+   
+    <div id="app">
+        <p>Nombres de clics sur le bouton: {{nbr}}</p>
+        <button v-on:click="nbr += 1">Incrémenter le compteur</button>
+    </div>
+    
+    <script>
+       
+        app = Vue.createApp({
+            data() {
+                return {
+                    nbr: 0,
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+</html>
