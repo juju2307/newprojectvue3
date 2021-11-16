@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet2-14</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        {{total}}
+        <compteur @ajoute="plusUn"></compteur>
+        <compteur @ajoute="plusUn"></compteur>
+        <compteur @ajoute="plusUn"></compteur>
+     </div>
+     <script>
+       app = Vue.createApp({
+            data() {
+                return {
+                    total: 0,
+                }
+            },
+            methods: {
+                plusUn() {
+                    this.total++;
+                }
+            }
+        });
+        app.component('compteur', {
+            template: '<button @click="incrementer">{{nbrClics}}</button>',
+            data() {
+                return {
+                    nbrClics: 0
+                }
+            },
+            methods:{
+                incrementer() {
+                   this.nbrClics++;
+                   this.$emit('ajoute');
+                }
+            }
+        })
+        app.mount('#app');
+    </script>
+</body>
+</html>

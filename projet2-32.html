@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet2-32</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .t-enter-from, /*Etat de départ de la transition lors de l'apparition*/
+        .t-leave-to {   /*Etat final de la transition lors de la disparition*/
+            opacity: 0;
+        }
+        .t-enter-active, /*paramètres de la transition pour passer de l'état invisible à l'état visible*/
+        .t-leave-active { /*paramètres de la transition pour passer de l'état visible à l'état invisible*/
+            transition: opacity 5s ease-in;
+        }
+        /*si l'attribut name n'est pas défini dans la balise transition 
+        les classes à utiliser sont .v-enter-from, .v-leave-to, .v-enter-active, .v-leave-active*/
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="visible=!visible">
+             <span v-if="visible">Cacher</span>
+             <span v-else="">Afficher</span>
+        </button>
+        <transition name="t">
+            <!--Element à animer-->
+            <div v-if="visible">
+                <img src="img/image1.jpg" alt="paysage">
+            </div>
+        </transition>
+    </div>
+    
+    <script>
+       
+        app = Vue.createApp({
+            data() {
+                return {
+                    visible: true
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+</html>
